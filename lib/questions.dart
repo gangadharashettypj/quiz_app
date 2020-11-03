@@ -36,10 +36,10 @@ class QuestionsModel {
         models.add(QuestionsModel(
           isMcq: true,
           json: value,
-          o1: value['1'],
-          o2: value['2'],
-          o3: value['3'],
-          o4: value['4'],
+          o1: '${value['1']}',
+          o2: '${value['2']}',
+          o3: '${value['3']}',
+          o4: '${value['4']}',
           answer: '${value['Answer']}',
           question: value['Question'],
           number: '${json.indexOf(value) + 1}',
@@ -189,7 +189,7 @@ class _QuestionsState extends State<Questions> {
                     },
                     selected: selected == 3 ?? null,
                   ),
-            !models[i].isMcq
+            !models[i].isMcq || models[i].o4 == 'null'
                 ? Container()
                 : ListTile(
                     title: Text('4. ${models[i].o4}'),
