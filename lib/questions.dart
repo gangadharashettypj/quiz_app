@@ -125,7 +125,7 @@ class _QuestionsState extends State<Questions> {
             ),
             ListTile(
               title: Text(
-                '${models[i].question}',
+                'Question: ${models[i].question}',
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                 ),
@@ -202,8 +202,21 @@ class _QuestionsState extends State<Questions> {
                   ),
             flag
                 ? ListTile(
-                    title: Text(
-                        'Answer is: ${models[i].isMcq ? models[i].json[models[i].answer] : models[i].answer}'),
+                    title: Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      children: [
+                        Text(
+                          'Answer ',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          ': ${models[i].isMcq ? models[i].json[models[i].answer] : models[i].answer}',
+                        ),
+                      ],
+                    ),
                   )
                 : Container(),
             FlatButton(

@@ -10,7 +10,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int noOfQuestions = 10;
-  String error = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +36,8 @@ class _HomeState extends State<Home> {
             Expanded(
               child: Container(),
             ),
-            Column(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   'Number of questions: ',
@@ -56,32 +56,13 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   child: Container(
-                    width: 50,
-                    child: TextField(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      '10',
                       textAlign: TextAlign.center,
-                      controller: TextEditingController(text: '10'),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                      onChanged: (val) {
-                        if (val.length > 0)
-                          noOfQuestions = int.parse(val);
-                        else {
-                          noOfQuestions = 0;
-                        }
-                      },
                     ),
                   ),
                 ),
-                error != ''
-                    ? Text(
-                        error,
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),
-                      )
-                    : SizedBox.shrink(),
               ],
             ),
             Expanded(
@@ -89,9 +70,6 @@ class _HomeState extends State<Home> {
             ),
             FlatButton(
               onPressed: () {
-                if (noOfQuestions == 0) {
-                  setState(() {});
-                }
                 Navigator.pushNamed(context, 'questions', arguments: {
                   'type': 't1',
                   'questions': noOfQuestions,

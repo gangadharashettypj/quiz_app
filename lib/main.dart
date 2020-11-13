@@ -20,6 +20,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Color.fromARGB(255, 28, 180, 252),
       ),
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
     );
   }
