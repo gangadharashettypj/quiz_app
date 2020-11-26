@@ -36,38 +36,6 @@ class _HomeState extends State<Home> {
             Expanded(
               child: Container(),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Number of questions: ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      width: 1,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Text(
-                      '10',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Container(),
-            ),
             FlatButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'questions', arguments: {
